@@ -17,11 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         localStorage.setItem("login-page", JSON.stringify(storage));
     }
 
-    if (!await databaseIsConnected()) {
-        window.location = "index.html";
-        return;
-    }
-
     const userNameInput = document.getElementById("username-input");
     const passwordInput = document.getElementById("password-input");
     const confirmPasswordRow = document.getElementById("confirm-password-row");
@@ -29,6 +24,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loginButton = document.getElementById("login-page-login-button");
     const loginMessage = document.getElementById("login-message");
     loginMessage.textContent = "";
+
+    if (!await databaseIsConnected()) {
+        window.location = "index.html";
+        storage.message = "There is no database connection. You cannot log in";
+        saveLocalStorage();
+        loginMessage.textContent = storage.message;
+        return;
+    }
+
     const userNames = [];
     let users = await fetch(API_URL + '/users').then(res => res.json());
     for (const user of users) {
