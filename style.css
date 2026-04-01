@@ -1,0 +1,53 @@
+body {
+    margin: 0 auto;
+    font-family: Kokonor, sans-serif;
+    max-width: 90vw;
+    padding: 10px;
+    background: gray;
+}
+
+button {
+    background: #8c839e;
+    padding: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background: lightblue;
+    cursor: pointer;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .input-div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .input-row {
+        margin: 2px;
+
+        input {
+            height: 1rem;
+            font-size: 1rem;
+        }
+    }
+
+    #login-page-login-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .redirect-div {
+        margin-top: 2rem;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+}
