@@ -23,15 +23,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const confirmPasswordInput = document.getElementById("confirm-password-input");
     const loginButton = document.getElementById("login-page-login-button");
     const loginMessage = document.getElementById("login-message");
-    loginMessage.textContent = "";
+    loginMessage.textContent = "Connection to database ... Please wait";
 
     if (!await databaseIsConnected()) {
-        window.location = "index.html";
-        storage.message = "There is no database connection. You cannot log in";
-        saveLocalStorage();
-        loginMessage.textContent = storage.message;
         return;
     }
+    loginMessage.textContent = "";
 
     const userNames = [];
     let users = await fetch(API_URL + '/users').then(res => res.json());
@@ -73,13 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(user)
             });
-            loginMessage.textContent = "Enter your name and password again to login";
-            saveLocalStorage();
-            userNames.push(user.name);
-            users.push(user);
-            userNameInput.value = "";
-            passwordInput.value = "";
-            confirmPasswordInput.value = "";
+            location.reload();
         } else if (userNames.includes(userNameInput.value)) {
             const user = users.find(user => user.name === userNameInput.value);
             const response = await fetch(API_URL + '/users/check-password', {
@@ -90,6 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const data = await response.json();
             if (!data.isValid) {
                 loginMessage.innerHTML = "Incorrect password <br> If you have forgotten your password, message Bread (brot5) on discord.";
+                document.querySelector(".redirect-div").style.display = "none";
                 return;
             }
             storage.name = user.name;
