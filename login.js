@@ -102,6 +102,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location = "https://bread-005.github.io/Grimoire-of-Lies/index.html";
     });
 
+    document.getElementById("rock-paper-scissors-advanced-button").addEventListener("click", () => {
+        window.location = "https://bread-005.github.io/rock-paper-scissors-advanced/index.html";
+    });
+
     async function databaseIsConnected() {
         try {
             const response = await fetch(API_URL + "/roles");
