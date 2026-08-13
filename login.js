@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     loginMessage.textContent = "";
 
     const userNames = [];
-    let users = await fetch(API_URL + '/users').then(res => res.json());
+    let users = await fetch(API_URL + 'clocktower-homebrew-collection/users').then(res => res.json());
     for (const user of users) {
         userNames.push(user.name);
     }
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 password: document.getElementById("password-input").value
             }
 
-            await fetch(API_URL + '/users/create', {
+            await fetch(API_URL + 'clocktower-homebrew-collection/users/create', {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(user)
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             location.reload();
         } else if (userNames.includes(userNameInput.value)) {
             const user = users.find(user => user.name === userNameInput.value);
-            const response = await fetch(API_URL + '/users/check-password', {
+            const response = await fetch(API_URL + 'clocktower-homebrew-collection/users/check-password', {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({inputPassword: passwordInput.value, databasePassword: user.password})
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function databaseIsConnected() {
         try {
-            const response = await fetch(API_URL + "/roles");
+            const response = await fetch(API_URL);
             return response.ok;
         } catch (err) {
             return false;
