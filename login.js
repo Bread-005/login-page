@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         localStorage.setItem("login-page", JSON.stringify(user));
     }
 
-    const API_URL = "https://clocktower-homebrew-collection-13pz.onrender.com";
+    const API_URL = "https://hobby-projects-api.onrender.com";
 
     const storage = JSON.parse(localStorage.getItem("login-page"));
 
