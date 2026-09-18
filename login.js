@@ -23,12 +23,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const confirmPasswordInput = document.getElementById("confirm-password-input");
     const loginButton = document.getElementById("login-page-login-button");
     const loginMessage = document.getElementById("login-message");
-    loginMessage.textContent = "Connection to database ... Please wait";
+    const loadingScreen = document.getElementById("loading-screen");
+    const loginContainer = document.querySelector(".login");
 
     if (!await databaseIsConnected()) {
+        loadingScreen.querySelector("p").textContent = "Could not connect to server";
         return;
     }
-    loginMessage.textContent = "";
+    loadingScreen.style.display = "none";
+    loginContainer.style.display = "flex";
 
     const userNames = [];
     let users = await fetch(API_URL + '/users').then(res => res.json());
