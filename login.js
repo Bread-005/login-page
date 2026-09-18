@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             storage.message = "You may now go to a page you see below";
             loginMessage.textContent = storage.message;
 
+            await updateLastLogin(user.name);
             saveLocalStorage();
             document.querySelector(".redirect-div").style.display = "flex";
         }
@@ -121,6 +122,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             body: JSON.stringify({name})
         });
         return response.json();
+    }
+
+    async function updateLastLogin(name) {
+        await fetch(API_URL + '/users/update/' + name, {
+            method: "PUT",
+            headers: {'Content-Type': 'application/json'}
+        });
     }
 
     async function databaseIsConnected() {

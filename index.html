@@ -12,46 +12,46 @@
 </head>
 <body>
 
-<div id="loading-screen" class="loading-screen">
-    <div class="spinner"></div>
-    <p>Waiting for server ...</p>
-</div>
+    <div id="loading-screen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Waiting for server ...</p>
+    </div>
 
-<div class="login" style="display: none;">
-    <h1>Login Page</h1>
-    <div class="input-div">
-        <div class="input-row">
-            <label for="username-input">Enter Username</label>
-            <input id="username-input">
+    <div class="login" style="display: none;">
+        <h1>Login Page</h1>
+        <div class="input-div">
+            <div class="input-row">
+                <label for="username-input">Enter Username</label>
+                <input id="username-input">
+            </div>
+            <div class="input-row">
+                <label for="password-input">Enter Password</label>
+                <input id="password-input" type="password">
+            </div>
+            <div id="confirm-password-row" class="input-row">
+                <label for="confirm-password-input">Confirm Password</label>
+                <input id="confirm-password-input" type="password">
+            </div>
         </div>
-        <div class="input-row">
-            <label for="password-input">Enter Password</label>
-            <input id="password-input" type="password">
-        </div>
-        <div id="confirm-password-row" class="input-row">
-            <label for="confirm-password-input">Confirm Password</label>
-            <input id="confirm-password-input" type="password">
+        <button id="login-page-login-button">Login / Sign Up</button>
+        <p id="login-message"></p>
+        <div class="redirect-div">
+            <div id="clocktower-homebrew-collection-button" class="project-link">
+                <img src="icons/clocktower-homebrew-collection.png" alt="Clocktower Homebrew Collection icon">
+                <span>Clocktower Homebrew Collection</span>
+            </div>
+            <div id="grimoire-of-lies-button" class="project-link">
+                <img src="icons/grimoire-of-lies.svg" alt="Grimoire of Lies icon">
+                <span>Grimoire of Lies</span>
+            </div>
+            <div id="rock-paper-scissors-advanced-button" class="project-link">
+                <img src="icons/rock-paper-scissors-advanced.svg" alt="Rock Paper Scissors Advanced icon">
+                <span>Rock Paper Scissors Advanced</span>
+            </div>
+    <!--        <button id="wherewolf-button">Wherewolf</button>-->
         </div>
     </div>
-    <button id="login-page-login-button">Login / Sign Up</button>
-    <p id="login-message"></p>
-    <div class="redirect-div">
-        <div id="clocktower-homebrew-collection-button" class="project-link">
-            <img src="icons/clocktower-homebrew-collection.png" alt="Clocktower Homebrew Collection icon">
-            <span>Clocktower Homebrew Collection</span>
-        </div>
-        <div id="grimoire-of-lies-button" class="project-link">
-            <img src="icons/grimoire-of-lies.svg" alt="Grimoire of Lies icon">
-            <span>Grimoire of Lies</span>
-        </div>
-        <div id="rock-paper-scissors-advanced-button" class="project-link">
-            <img src="icons/rock-paper-scissors-advanced.svg" alt="Rock Paper Scissors Advanced icon">
-            <span>Rock Paper Scissors Advanced</span>
-        </div>
-<!--        <button id="wherewolf-button">Wherewolf</button>-->
-    </div>
-</div>
 
-<script src="login.js" type="module" defer></script>
+    <script src="login.js" type="module" defer></script>
 </body>
 </html>
