@@ -78,18 +78,18 @@ button:hover {
     }
 }
 
-.project-button {
+.project-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    width: 6rem;
     text-align: center;
+    cursor: pointer;
 
     img {
-        width: 3rem;
-        height: 3rem;
+        width: 150px;
+        height: 150px;
         object-fit: contain;
     }
 }
