@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <defs>
+        <linearGradient id="pageLeft" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#efe2c0"/>
+            <stop offset="1" stop-color="#d8c69a"/>
+        </linearGradient>
+        <linearGradient id="pageRight" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#d8c69a"/>
+            <stop offset="1" stop-color="#efe2c0"/>
+        </linearGradient>
+    </defs>
+
+    <!-- open book: two pages meeting at a spine, curving up at the outer edges -->
+    <path d="M32 14 C24 10, 12 10, 6 14 L6 52 C12 48, 24 48, 32 52 Z"
+          fill="url(#pageLeft)" stroke="#5c3a1e" stroke-width="1.5"/>
+    <path d="M32 14 C40 10, 52 10, 58 14 L58 52 C52 48, 40 48, 32 52 Z"
+          fill="url(#pageRight)" stroke="#5c3a1e" stroke-width="1.5"/>
+
+    <!-- spine shadow -->
+    <path d="M32 14 L32 52" stroke="#5c3a1e" stroke-width="1.5" opacity="0.7"/>
+
+    <!-- a few page lines for texture -->
+    <path d="M11 20 C17 18, 24 18, 29 21 M11 26 C17 24, 24 24, 29 27 M11 32 C17 30, 24 30, 29 33"
+          stroke="#5c3a1e" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <path d="M35 21 C40 18, 47 18, 53 20 M35 27 C40 24, 47 24, 53 26 M35 33 C40 30, 47 30, 53 32"
+          stroke="#5c3a1e" stroke-width="0.8" fill="none" opacity="0.4"/>
+
+    <!-- watching eye in the center of the book -->
+    <path d="M20 33 C25 26, 39 26, 44 33 C39 40, 25 40, 20 33 Z" fill="#2b0f38" stroke="#4a1d5c" stroke-width="1"/>
+    <circle cx="32" cy="33" r="5.5" fill="#8a2be2"/>
+    <circle cx="32" cy="33" r="2.2" fill="#0f0713"/>
+</svg>
