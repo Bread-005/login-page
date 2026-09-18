@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             await updateLastLogin(user.name);
             saveLocalStorage();
-            document.querySelector(".redirect-div").style.display = "flex";
+            document.querySelector(".redirect-div").classList.add("visible");
         }
     });
 
@@ -109,6 +109,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("rock-paper-scissors-advanced-button").addEventListener("click", () => {
         window.location = "https://bread-005.github.io/rock-paper-scissors-advanced/index.html";
+    });
+
+    document.getElementById("der-dummste-fliegt-button").addEventListener("click", () => {
+        window.location = "https://bread-005.github.io/der-dummste-fliegt/index.html";
     });
 
     // document.getElementById("wherewolf-button").addEventListener("click", () => {

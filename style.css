@@ -73,8 +73,12 @@ button:hover {
     .redirect-div {
         margin-top: 2rem;
         display: none;
-        align-items: center;
-        justify-content: center;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+
+        &.visible {
+            display: grid;
+        }
     }
 }
 
