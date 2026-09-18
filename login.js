@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!localStorage.getItem("login-page")) {
         const user = {
             name: "",
-            password: "",
+            token: "",
             message: ""
         }
         localStorage.setItem("login-page", JSON.stringify(user));
@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.querySelector(".redirect-div").style.display = "none";
                 return;
             }
+            const session = await createSession(user.name);
             storage.name = user.name;
-            storage.password = user.password;
+            storage.token = session.token;
             storage.message = "You may now go to a page you see below";
             loginMessage.textContent = storage.message;
 
@@ -105,6 +106,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("rock-paper-scissors-advanced-button").addEventListener("click", () => {
         window.location = "https://bread-005.github.io/rock-paper-scissors-advanced/index.html";
     });
+
+    // document.getElementById("wherewolf-button").addEventListener("click", () => {
+    //     window.location = "https://bread-005.github.io/wherewolf-project/index.html";
+    // });
+
+    async function createSession(name) {
+        const response = await fetch(API_URL + '/session/create', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name})
+        });
+        return response.json();
+    }
 
     async function databaseIsConnected() {
         try {
