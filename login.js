@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    if (storage.name) {
-        await deleteAllSessionsForUser(storage.name);
+    if (storage.token) {
+        await deleteSession(storage.token);
         storage.name = "";
         storage.token = "";
         storage.message = "";
@@ -137,11 +137,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         return response.json();
     }
 
-    async function deleteAllSessionsForUser(name) {
-        await fetch(API_URL + '/session/delete-all', {
+    async function deleteSession(token) {
+        await fetch(API_URL + '/session/delete', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name})
+            body: JSON.stringify({token})
         });
     }
 
