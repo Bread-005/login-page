@@ -97,3 +97,15 @@ button:hover {
         object-fit: contain;
     }
 }
+
+@media (max-width: 480px) {
+    .project-link {
+        gap: 0.25rem;
+        font-size: 0.75rem;
+
+        img {
+            width: 90px;
+            height: 90px;
+        }
+    }
+}
