@@ -30,6 +30,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         loadingScreen.querySelector("p").textContent = "Could not connect to server";
         return;
     }
+
+    if (storage.name) {
+        await deleteAllSessionsForUser(storage.name);
+        storage.name = "";
+        storage.token = "";
+        storage.message = "";
+        saveLocalStorage();
+    }
+
     loadingScreen.style.display = "none";
     loginContainer.style.display = "flex";
 
@@ -126,6 +135,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             body: JSON.stringify({name})
         });
         return response.json();
+    }
+
+    async function deleteAllSessionsForUser(name) {
+        await fetch(API_URL + '/session/delete-all', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name})
+        });
     }
 
     async function updateLastLogin(name) {
